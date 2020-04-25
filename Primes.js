@@ -7,9 +7,9 @@ class Primes {
     }
 
     getPrimes(n = this.n) {
-        var isPrime = Array(n).fill(true), upperLimit = Math.sqrt(n), primes = [2];
-        for (var i = 3; i <= upperLimit; i += 2) if (isPrime[i]) for (var j = i * i; j < n; j += i*2) isPrime[j] = false;
-        for (var i = 3; i < n; i += 2) if(isPrime[i]) primes.push(i);
+        const isPrime = Array(n).fill(true), upperLimit = Math.sqrt(n), primes = [2];
+        for (let i = 3; i <= upperLimit; i += 2) if (isPrime[i]) for (let j = i * i; j < n; j += i * 2) isPrime[j] = false;
+        for (let i = 3; i < n; i += 2) if(isPrime[i]) primes.push(i);
         return primes;
     }
 
