@@ -18,5 +18,3 @@ function getPrimeSums(n, k = 2, min = 2, primes = getPrimes(n + 1)) {
     }
     return sums;
 }
-
-console.log(getPrimeSums(13, 0))
