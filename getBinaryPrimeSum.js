@@ -13,7 +13,3 @@ const getBinaryPrimeSum = n => {
             return [i, n - i];
     return isPrime(n / 2) ? [n / 2, n / 2] : null;
 };
-
-let t = Date.now();
-console.log(getBinaryPrimeSum(10**15+342534324));
-console.log(Date.now() - t);
