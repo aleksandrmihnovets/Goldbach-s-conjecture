@@ -8,12 +8,13 @@ function getPrimes(n) {
 function getPrimeSums(n, k = 2, min = 2, primes = getPrimes(n + 1)) {
     let sums = [];
     for (const prime of primes) {
-        if (prime > n / k) return sums;
-        else if (k === 1 && prime === n) return [[prime]];
-        else if (k > 1 && prime >= min) {
+        if (prime < min) continue;
+        else if (prime > n / k) return sums;
+        else if (k > 1) {
             const restSums = getPrimeSums(n - prime, k - 1, prime, primes);
             sums = sums.concat(restSums.map(sum => [prime, ...sum]));
         }
+        else if (prime === n) return [[prime]];
     }
     return sums;
 }
