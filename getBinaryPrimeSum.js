@@ -1,9 +1,4 @@
-const isPrime = n => {
-    if (n % 2 === 0) return n === 2;
-    for (let i = 3, sqrt = Math.sqrt(n); i <= sqrt; i += 2)
-        if(n % i === 0) return false;
-    return n > 1;
-};
+const { isPrime } = require('./helpers');
 
 const getBinaryPrimeSum = n => {
     if (n % 2 === 1)

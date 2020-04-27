@@ -1,11 +1,6 @@
-const getPrimes = n => {
-    const isPrime = Array(n).fill(true), upperLimit = Math.sqrt(n), primes = [2];
-    for (let i = 3; i <= upperLimit; i += 2) if (isPrime[i]) for (let j = i * i; j < n; j += i * 2) isPrime[j] = false;
-    for (let i = 3; i < n; i += 2) if(isPrime[i]) primes.push(i);
-    return primes;
-};
+const { eratosthenes } = require('helpers');
 
-const getPrimeSums = (n, k = 2, min = 2, primes = getPrimes(n + 1)) => {
+const getPrimeSums = (n, k = 2, min = 2, primes = eratosthenes(n + 1)) => {
     let sums = [];
     for (const prime of primes) {
         if (prime < min) continue;
