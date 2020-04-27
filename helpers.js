@@ -5,7 +5,7 @@ const eratosthenes = n => {
     return primes;
 };
 
-const PRIMES_E6 = eratosthenes(10**6);
+const PRIMES_E6 = eratosthenes(10 ** 6);
 
 const isPrime = (n, primes = PRIMES_E6) => {
     const sqrt = Math.sqrt(n);
