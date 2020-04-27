@@ -3,7 +3,7 @@ const { isPrime } = require('./helpers');
 
 const DELIMITER = ',';
 
-const generatePrimes = (n) => {
+const generatePrimes = n => {
     const primes = [2];
     for (let i = 3; i < n; i += 2)
         if (isPrime(i, primes)) primes.push(i);
