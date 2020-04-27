@@ -3,7 +3,7 @@ const { isPrime } = require('./helpers');
 const pi = x => {
     let count = 1;
     for (let i = 3; i <= x; i += 2)
-        if (isPrime(i)) count++;;
+        if (isPrime(i)) count++;
     return count;
 }
 
