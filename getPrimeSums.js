@@ -1,14 +1,17 @@
-const { eratosthenes } = require('helpers');
+const { eratosthenes } = require('./helpers');
 
-const getPrimeSums = (n, k = 2, min = 2, primes = eratosthenes(n + 1)) => {
-    let sums = [];
-    for (const prime of primes) {
-        if (prime < min) continue;
-        else if (prime > n / k) return sums;
-        else if (k === 1 && prime === n) return [[prime]];
-        else if (k > 1) {
-            const restSums = getPrimeSums(n - prime, k - 1, prime, primes);
-            sums = sums.concat(restSums.map(sum => [prime, ...sum]));
+const getPrimeSums = (n, k = 2, primes = eratosthenes(n + 1)) => {
+    const indices = Array(k).fill(0), sums = [];
+    let term = 0, sum = k * 2;
+    while (term >= 0) {
+        if (sum < n) term = k - 1;
+        if (sum >= n || indices[term] === primes.length - 1) {
+            sum === n && sums.push(indices.map(i => primes[i]));
+            term -= 1;
+        }
+        for (let i = k - 1; i >= term; i--) {
+            sum += primes[indices[term] + 1] - primes[indices[i]];
+            indices[i] = indices[term] + 1;
         }
     }
     return sums;
